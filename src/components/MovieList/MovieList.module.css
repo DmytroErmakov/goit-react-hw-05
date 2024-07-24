@@ -1,0 +1,32 @@
+.movieList {
+  /* display: flex;
+  flex-wrap: wrap;
+  list-style: none; */
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+}
+
+.movieItem {
+  margin: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.moviePoster {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.moviePoster:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.movieItem p {
+  font-size: 1rem;
+  margin: 10px 0 0;
+  color: #333;
+}

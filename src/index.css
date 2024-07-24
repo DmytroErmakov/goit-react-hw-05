@@ -1,0 +1,33 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: blue;
+}
+
+.movie-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.movie-item {
+  margin-bottom: 20px;
+}
+
+.movie-poster {
+  width: 200px;
+}

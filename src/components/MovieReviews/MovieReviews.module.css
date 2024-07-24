@@ -1,0 +1,12 @@
+.author {
+  font-weight: bold;
+}
+
+.content {
+  margin: 10px 0;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}

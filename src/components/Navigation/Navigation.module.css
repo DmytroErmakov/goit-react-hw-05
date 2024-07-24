@@ -1,0 +1,8 @@
+.link {
+  text-decoration: none;
+  color: blue;
+}
+
+.link.active {
+  font-weight: bold;
+}
