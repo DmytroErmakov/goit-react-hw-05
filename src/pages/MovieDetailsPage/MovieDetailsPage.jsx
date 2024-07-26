@@ -1,19 +1,16 @@
 import React from "react";
-import { useState, useEffect, lazy, Suspense } from "react";
-import { useParams, Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import { useState, useEffect, Suspense, useRef } from "react";
+import { useParams, Link, useNavigate, Outlet, useLocation } from "react-router-dom";
 import axios from "axios";
-
-// const MovieCast = lazy(() => import("../../components/MovieCast/MovieCast"));
-// const MovieReviews = lazy(() =>
-//   import("../../components/MovieReviews/MovieReviews")
-// );
 
 const API_KEY = "668eb06e858bc95bbf59ba222dcc3087";
 
 export default function MoviesDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
   const navigate = useNavigate();
+  const fromLocationRef = useRef(location.state?.from || "/movies");
 
   useEffect(() => {
     axios
@@ -26,20 +23,29 @@ export default function MoviesDetailsPage() {
 
   return (
     <div>
-           
-      <button onClick={() => navigate(-1)}>Go back</button>
+      <button
+        onClick={() =>
+          navigate(fromLocationRef.current)
+        }
+      >
+        Go back
+      </button>
       <h1>{movie.title}</h1>
       <img
         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title}
       />
-      <p>{movie.overwiew}</p>
-            <ul>
+      <p>{movie.overview}</p>
+      <ul>
         <li>
-          <Link to="cast">Cast</Link>
+          <Link to="cast" state={{ from: fromLocationRef.current }}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to="reviews">Reviews</Link>
+          <Link to="reviews" state={{ from: fromLocationRef.current }}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <Suspense fallback={<div>Loading search Films...</div>}>
